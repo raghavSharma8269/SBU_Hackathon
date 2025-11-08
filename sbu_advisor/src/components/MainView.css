@@ -1,0 +1,9 @@
+.main-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    padding: 1.5rem;
+    overflow: auto;
+    background-color: lightblue;
+}
