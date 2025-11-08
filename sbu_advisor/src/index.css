@@ -1,6 +1,35 @@
 @import "tailwindcss";
-body {
-  background-color: #171515;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  /* Add dark background */
+  background-color: #fff;
+}
+
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
   min-height: 100vh;
+  background-color: #fff;
+}
+
+/* Ensure all containers maintain dark theme */
+.dark-theme {
+  background-color: #fff;
+  color: #ffffff;
 }
