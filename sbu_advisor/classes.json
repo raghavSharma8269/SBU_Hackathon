@@ -1,0 +1,223 @@
+{
+  "program_info": {
+    "degree": "Bachelor of Science in Computer Science",
+    "department": "Computer Science, College of Engineering and Applied Sciences",
+    "total_credits": "approximately 80 credits",
+    "minimum_major_credits_at_sbu": 24
+  },
+
+  "required_courses": {
+    "introductory": [
+      {
+        "code": "CSE 113",
+        "name": "Foundations of Computer Science 1",
+        "credits": 4,
+        "when_taken": "Freshman or Sophomore"
+      },
+      {
+        "code": "CSE 114",
+        "name": "Introduction to Object-Oriented Programming",
+        "credits": 4,
+        "when_taken": "Freshman Fall",
+        "prerequisite_for": ["CSE 214", "Major admission"],
+        "sbc": "TECH",
+        "description": "First programming course, object-oriented fundamentals"
+      },
+      {
+        "code": "CSE 214",
+        "name": "Data Structures",
+        "credits": 4,
+        "when_taken": "Freshman Spring or Sophomore Fall",
+        "prerequisites": ["CSE 114"],
+        "prerequisite_for": [
+          "Most upper-division CSE courses",
+          "Major admission"
+        ],
+        "description": "Lists, stacks, queues, trees, graphs, sorting algorithms"
+      }
+    ],
+
+    "required_advanced": [
+      {
+        "code": "CSE 215",
+        "name": "Foundations of Computer Science",
+        "credits": 3,
+        "when_taken": "Sophomore",
+        "prerequisites": ["CSE 114"],
+        "description": "Mathematical foundations, logic, proofs, discrete math"
+      },
+      {
+        "code": "CSE 216",
+        "name": "Programming Abstractions",
+        "credits": 3,
+        "when_taken": "Sophomore Fall or Spring",
+        "prerequisites": ["CSE 214"],
+        "prerequisite_for": ["Most 300-level courses"],
+        "description": "Design patterns, software abstractions, advanced OOP"
+      },
+      {
+        "code": "CSE 220",
+        "name": "Systems Fundamentals I",
+        "credits": 4,
+        "when_taken": "Sophomore Spring",
+        "prerequisites": ["CSE 214"],
+        "prerequisite_for": ["CSE 320"],
+        "description": "Computer architecture, assembly language, low-level programming"
+      },
+      {
+        "code": "CSE 300",
+        "name": "Technical Communications",
+        "credits": 3,
+        "when_taken": "Junior Fall",
+        "prerequisites": ["CSE 214", "WRT 102"],
+        "sbc": "SPK, WRTD",
+        "description": "Professional writing and presentation skills"
+      },
+      {
+        "code": "CSE 303",
+        "name": "Introduction to the Theory of Computation",
+        "credits": 3,
+        "when_taken": "Junior",
+        "prerequisites": ["CSE 215"],
+        "description": "Automata, formal languages, computability"
+      },
+      {
+        "code": "CSE 307",
+        "name": "Principles of Programming Languages",
+        "credits": 3,
+        "when_taken": "Junior Fall",
+        "prerequisites": ["CSE 216"],
+        "description": "Language paradigms, interpreters, compilers"
+      },
+      {
+        "code": "CSE 312",
+        "name": "Legal, Social, and Ethical Issues in Information Systems",
+        "credits": 3,
+        "when_taken": "Junior Spring",
+        "prerequisites": ["Upper-division standing"],
+        "sbc": "STAS, CER, ESI",
+        "description": "Ethics, privacy, intellectual property, societal impact"
+      },
+      {
+        "code": "CSE 316",
+        "name": "Fundamentals of Software Development",
+        "credits": 3,
+        "when_taken": "Junior Spring",
+        "prerequisites": ["CSE 216"],
+        "sbc": "EXP+, SBS+, ESI",
+        "description": "Software engineering, testing, version control, team projects"
+      },
+      {
+        "code": "CSE 320",
+        "name": "Systems Fundamentals II",
+        "credits": 3,
+        "when_taken": "Senior Fall",
+        "prerequisites": ["CSE 220", "CSE 216"],
+        "description": "Operating systems, concurrency, networking, multithreading"
+      },
+      {
+        "code": "CSE 373",
+        "name": "Analysis of Algorithms",
+        "credits": 3,
+        "when_taken": "Junior Fall",
+        "prerequisites": ["CSE 214", "CSE 215 or AMS 301"],
+        "description": "Algorithm design, complexity analysis, NP-completeness"
+      },
+      {
+        "code": "CSE 356",
+        "name": "Cloud Computing",
+        "credits": 3,
+        "when_taken": "Senior Spring",
+        "prerequisites": ["CSE 316"],
+        "sbc": "EXP+, ESI",
+        "description": "Distributed systems, cloud platforms, scalability",
+        "alternative_to": "CSE 416"
+      },
+      {
+        "code": "CSE 416",
+        "name": "Software Engineering",
+        "credits": 3,
+        "when_taken": "Senior Spring",
+        "prerequisites": ["CSE 316"],
+        "sbc": "EXP+, SBS+, ESI",
+        "description": "Advanced software development, project management, capstone",
+        "alternative_to": "CSE 356"
+      }
+    ],
+
+    "math_requirements": {
+      "calculus": {
+        "option_1": ["AMS 151", "AMS 161"],
+        "option_2": ["MAT 125", "MAT 126", "MAT 127"],
+        "option_3": ["MAT 131", "MAT 132"],
+        "option_4": ["MAT 141", "MAT 142"],
+        "when_taken": "Freshman year",
+        "description": "Two-semester calculus sequence required"
+      },
+      "linear_algebra": {
+        "options": ["AMS 210", "MAT 211"],
+        "when_taken": "Sophomore Fall",
+        "description": "Linear algebra required"
+      },
+      "statistics": {
+        "required": "AMS 310",
+        "name": "Survey of Probability and Statistics",
+        "when_taken": "Sophomore Spring",
+        "prerequisites": ["Calculus sequence"],
+        "sbc": "STEM+"
+      }
+    },
+
+    "science_requirements": {
+      "lab_sequence": {
+        "options": [
+          ["BIO 201", "BIO 202", "BIO 203"],
+          ["CHE 131", "CHE 132", "CHE 152"],
+          ["PHY 125", "PHY 126", "PHY 127"],
+          ["PHY 131", "PHY 132"],
+          ["PHY 141", "PHY 142"]
+        ],
+        "credits": "One lecture/lab sequence (typically 7-8 credits)",
+        "when_taken": "Freshman or Sophomore year"
+      },
+      "additional_science": {
+        "credits": 3,
+        "description": "One additional natural science course"
+      }
+    }
+  },
+
+  "major_admission_requirements": {
+    "for_aoi_students": {
+      "required_courses": ["CSE 113", "CSE 114", "CSE 214"],
+      "minimum_grade": "B- or higher in each course",
+      "minimum_gpa_in_courses": 3.2,
+      "minimum_cumulative_gpa": 3.0,
+      "max_repeats": 1,
+      "deadline": "Must complete within one year of first CSE course",
+      "application_deadlines": {
+        "spring_admission": "January 5",
+        "fall_admission": "June 5"
+      }
+    },
+    "for_non_cse_students": {
+      "competitive": true,
+      "must_meet_aoi_requirements": true,
+      "notes": "Admission not guaranteed, contingent on program capacity"
+    }
+  },
+
+  "electives_requirement": {
+    "upper_division_technical": {
+      "count": 6,
+      "minimum_credits_each": 3,
+      "restrictions": [
+        "Cannot double-count with required advanced courses",
+        "CSE 475 (teaching practicum) does not count",
+        "CSE 495 (first semester honors project) does not count",
+        "Non-technical courses do not count",
+        "Maximum 3 credits from CSE 487, 496, VIP courses"
+      ]
+    }
+  }
+}
