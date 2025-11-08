@@ -11,36 +11,40 @@ import './SemesterBoard.css';
 export default function SemesterBoard({ semesters = [] }) {
   return (
     <div className="sem-board">
-      {semesters.map(sem => (
+        
+        {/* Render each semester column */}
+        {semesters.map(sem => (
         <div key={sem.id} className="sem-column">
-          <div className="sem-column-header">
+            <div className="sem-column-header">
             <h3 className="sem-title">{sem.label}</h3>
             <div className="sem-meta">
-              <span className="badge credits" aria-label={`${sem.totalCredits} credits`}>{sem.totalCredits} credits</span>
-              <span className={`badge status ${sem.courses.some(c => c.status === 'prereq-issue') ? 'bad' : 'good'}`}>
+                <span className="badge credits" aria-label={`${sem.totalCredits} credits`}>{sem.totalCredits} credits</span>
+                <span className={`badge status ${sem.courses.some(c => c.status === 'prereq-issue') ? 'bad' : 'good'}`}>
                 {sem.courses.some(c => c.status === 'prereq-issue') ? 'Prereq Issue' : 'Valid'}
-              </span>
+                </span>
             </div>
-          </div>
-          <div className="sem-course-stack">
+            </div>
+
+            <div className="sem-course-stack">
             {sem.courses.map(c => (
-              <details key={c.id} className="course-card" open>
+                <details key={c.id} className="course-card" open>
                 <summary className="course-summary">
-                  <span className="drag-handle" aria-hidden="true">⋮⋮</span>
-                  <div className="course-main">
+                    <span className="drag-handle" aria-hidden="true">⋮⋮</span>
+                    <div className="course-main">
                     <div className="course-header">
-                      <span className="course-code">{c.id}</span>
-                      <span className="course-credits" aria-label={`${c.credits} credits`}>{c.credits} cr</span>
+                        <span className="course-code">{c.id}</span>
+                        <span className="course-credits" aria-label={`${c.credits} credits`}>{c.credits} cr</span>
                     </div>
                     <div className="course-name">{c.name}</div>
-                  </div>
+                    </div>
                 </summary>
                 {/* Future: expanded details body */}
-              </details>
+                </details>
             ))}
-          </div>
+            </div>
         </div>
-      ))}
+        ))}
+      
     </div>
   );
 }
