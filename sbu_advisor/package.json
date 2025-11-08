@@ -18,6 +18,8 @@
     "gsap": "^3.13.0",
     "lucide-react": "^0.553.0",
     "ogl": "^1.0.11",
+    "bootstrap-icons": "^1.13.1",
+    "motion": "^12.23.24",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-router-dom": "^7.9.5",

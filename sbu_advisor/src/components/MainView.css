@@ -1,0 +1,28 @@
+.main-content {
+    position: relative; /* enable layered children */
+    display: flex;
+    flex: 1;
+    /* let the foreground container manage its own padding/scroll */
+    overflow: hidden; /* keep background effects clipped to main */
+    background: transparent; /* transparent so DotGrid shows through */
+}
+
+/* Background layer that holds the DotGrid */
+.dotgrid-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none; /* allow interactions to pass to overlay */
+}
+
+/* Foreground overlay where your table/board lives */
+.main-overlay {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    padding: 1.5rem;
+    overflow: auto; /* scroll your planner while the background stays put */
+}

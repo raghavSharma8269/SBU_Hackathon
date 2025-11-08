@@ -1,0 +1,139 @@
+.side-nav {
+  width: 360px;
+  min-width: 320px;
+  max-width: 420px;
+  height: 100%;
+  background: #ffffff;
+  border-right: 1px solid #e5e7eb;
+  padding: 12px 14px 18px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  font-family: system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+}
+
+/* Search */
+.sn-search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  background: #f7f8fa;
+  font-size: 14px;
+}
+.sn-search i { color: #6b7280; }
+.sn-search input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 14px;
+  color: #374151;
+}
+
+/* Chips */
+.sn-chips {
+  display: flex;
+  gap: 8px;
+  margin-top: 14px;
+  padding-bottom: 4px;
+  overflow-x: auto;
+}
+.sn-chip {
+  padding: 6px 14px;
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #374151;
+  cursor: default;
+}
+.sn-chip.active {
+  background: #111827;
+  color: #ffffff;
+  border-color: #111827;
+}
+
+/* Course list */
+.sn-course-list {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  height: 100vh;
+  gap: 12px;
+  margin-top: 12px;
+  padding-bottom: 40px;
+}
+
+.sn-card {
+  display: grid;
+  grid-template-columns: 24px 1fr auto;
+  gap: 10px;
+  padding: 14px 16px;
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+  transition: box-shadow .15s;
+}
+.sn-card:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+
+.sn-card-left i {
+  color: #9ca3af;
+  font-size: 16px;
+  line-height: 1;
+  padding-top: 4px;
+}
+
+.sn-card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.sn-code {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: .5px;
+  color: #111827;
+}
+.sn-credit {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 2px 8px;
+  background: #f1f5f9;
+  color: #0f172a;
+  border-radius: 999px;
+}
+
+.sn-title {
+  margin-top: 4px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #374151;
+}
+
+.sn-expand {
+  border: none;
+  background: transparent;
+  color: #6b7280;
+  padding: 4px;
+  font-size: 18px;
+  cursor: default;
+}
+
+@media (max-width: 900px) {
+  .side-nav {
+    width: 100%;
+    max-width: none;
+    border-right: none;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  .sn-chips {
+    flex-wrap: nowrap;
+  }
+}
