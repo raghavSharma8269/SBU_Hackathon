@@ -8,7 +8,7 @@
         "description": "Introduction to the mathematical foundations of computer science. Topics include logic, proof techniques, and key concepts of mathematical structures such as sequences, sets, functions, relations, and graphs. Not for credit in addition to CSE 215.",
         "credits": 4,
         "SBCs": "None",
-        "requirements": "Prerequisite(s): AMS 151 or MAT 125 or MAT 131 or level 6 on the mathematics placement examination",
+  "requirements": "AMS 151 or MAT 125 or MAT 131 or level 6 on the mathematics placement examination",
         "alternatives": "None",
         "restrictions": "None"
       },
@@ -19,7 +19,7 @@
         "description": "An introduction to procedural and object-oriented programming methodology. Covers program structure, conditional and iterative programming, procedures, arrays, object classes, encapsulation, inheritance, polymorphism, file I/O, and exceptions. Includes a required lab. This course has been designated as a High Demand/Controlled Access course.",
         "credits": 4,
         "SBCs": "TECH",
-        "requirements": "Prerequisite(s): Level 5 or higher on the math placement exam. Advisory prerequisite: CSE 101, CSE 103, or ISE 108.",
+  "requirements": "Level 5 or higher on the math placement exam. Advisory prerequisite: CSE 101, CSE 103, or ISE 108.",
         "alternatives": "None",
         "restrictions": "None"
       },
@@ -30,7 +30,7 @@
         "description": "A continuation of CSE 113 covering mathematical foundations, counting techniques, graph theory, and finite automata.",
         "credits": 4,
         "SBCs": "None",
-        "requirements": "Prerequisite(s): CSE 113 or CSE 215 or CSE 150; CSE major",
+  "requirements": "CSE 113 or CSE 215 or CSE 150; CSE major",
         "alternatives": "None",
         "restrictions": "CSE majors only"
       },
@@ -41,7 +41,7 @@
         "description": "Extension of programming methodology to data storage and manipulation on complex datasets. Covers stacks, queues, lists, binary trees, heaps, priority queues, balanced trees, graphs, recursion, and sorting/searching algorithms.",
         "credits": 4,
         "SBCs": "None",
-        "requirements": "Prerequisite(s): C or higher in CSE 114",
+  "requirements": "C or higher in CSE 114",
         "alternatives": "None",
         "restrictions": "CSE majors only"
       },
@@ -52,7 +52,7 @@
         "description": "Introduces systems-level programming using C and assembly language. Covers data representation, instructions, control structures, memory management, pointers, function calls, linking/loading, and foundational computer architecture and networks.",
         "credits": 4,
         "SBCs": "None",
-        "requirements": "Prerequisite(s): C or higher in CSE 214 or co-requisite CSE 260 and CSE major",
+  "requirements": "C or higher in CSE 214 or co-requisite CSE 260 and CSE major",
         "alternatives": "None",
         "restrictions": "CSE majors only"
       },
@@ -63,7 +63,7 @@
         "description": "Introduction to programming language paradigms including functional and logic programming. Covers scoping, binding, type systems, memory, and language implementation concepts such as parsing, semantic analysis, and code generation.",
         "credits": 3,
         "SBCs": "None",
-        "requirements": "Prerequisite(s): C or higher in CSE 214, CSE 216, or CSE 260; CSE or DAS major",
+  "requirements": "C or higher in CSE 214, CSE 216, or CSE 260; CSE or DAS major",
         "alternatives": "None",
         "restrictions": "CSE or DAS majors only"
       },
@@ -74,7 +74,7 @@
         "description": "Introduction to systematic design, development, and testing of software systems, including event-driven programming, databases, secure computing principles, and version control. Students construct large, robust programs.",
         "credits": 3,
         "SBCs": "ESI, EXP+, SBS+, STEM+",
-        "requirements": "Prerequisite(s): C or higher in CSE 216, CSE 260, or CSE 307; CSE major",
+  "requirements": "C or higher in CSE 216, CSE 260, or CSE 307; CSE major",
         "alternatives": "None",
         "restrictions": "CSE majors only"
       },
@@ -85,7 +85,7 @@
         "description": "Introduces operating systems, compilers, concurrency, and performance analysis. Focuses on APIs for interacting with an OS and memory management, error handling, and threaded programming.",
         "credits": 3,
         "SBCs": "None",
-        "requirements": "Prerequisite(s): C or higher in CSE 220 and CSE major",
+  "requirements": "C or higher in CSE 220 and CSE major",
         "alternatives": "None",
         "restrictions": "CSE majors only"
       },
@@ -96,7 +96,7 @@
         "description": "Mathematical analysis of computer algorithms including searching, sorting, matrix multiplication, FFT, and graph algorithms. Covers time and space complexity, upper/lower/average-case analysis, and introduction to NP-completeness.",
         "credits": 3,
         "SBCs": "None",
-        "requirements": "Prerequisite(s): C or higher in CSE 113 or CSE 150 or CSE 215 or MAT 200 or MAT 250; MAT 211 or AMS 210; CSE 214 or CSE 260; CSE or MAT or DAS major",
+  "requirements": "C or higher in CSE 113 or CSE 150 or CSE 215 or MAT 200 or MAT 250; MAT 211 or AMS 210; CSE 214 or CSE 260; CSE or MAT or DAS major",
         "alternatives": "None",
         "restrictions": "CSE, MAT, or DAS majors only"
       },
@@ -107,7 +107,7 @@
         "description": "Focus on deploying and scaling modern online services, using mature technologies across distributed servers for high-availability systems.",
         "credits": 3,
         "SBCs": "EXP+",
-        "requirements": "Prerequisite(s): C or higher in CSE 316 and CSE 320; CSE major",
+  "requirements": "C or higher in CSE 316 and CSE 320; CSE major",
         "alternatives": "CSE 416",
         "restrictions": "CSE majors only"
       },
@@ -118,7 +118,7 @@
         "description": "Introduction to software engineering concepts and tools. Covers requirements/specifications, design methodologies, implementation, integration, testing, project management, maintenance, and human factors.",
         "credits": 3,
         "SBCs": "ESI, EXP+, SBS+, STEM+",
-        "requirements": "Prerequisite(s): C or higher in CSE 316; U4 standing; CSE major",
+  "requirements": "C or higher in CSE 316; U4 standing; CSE major",
         "alternatives": "CSE 356",
         "restrictions": "CSE majors only"
       }
@@ -137,28 +137,28 @@
             "name": "Introduction to Data Science",
             "description": "Introduces theoretical concepts and practical methods for extracting knowledge from data using machine learning and statistics. Covers preprocessing, modeling, prediction, evaluation, and visualization with Python.",
             "credits": 3,
-            "requirements": "Prerequisite(s): CSE 214 or CSE 260; AMS 310; CSE or DAS major."
+            "requirements": "CSE 214 or CSE 260; AMS 310; CSE or DAS major."
           },
           {
             "id": "CSE352",
             "name": "Artificial Intelligence",
             "description": "Covers problem representations, search algorithms, game-playing, theorem proving, and cognitive simulation. Includes topics in current AI research.",
             "credits": 3,
-            "requirements": "Prerequisite(s): CSE 316 or CSE 351; CSE or DAS major."
+            "requirements": "CSE 316 or CSE 351; CSE or DAS major."
           },
           {
             "id": "CSE353",
             "name": "Machine Learning",
             "description": "Covers fundamental concepts, models, and algorithms for systems that learn from data. Applications include vision, NLP, and robotics.",
             "credits": 3,
-            "requirements": "Prerequisite(s): CSE 316 or CSE 351; CSE or DAS major. Pre- or corequisite: AMS 310 or AMS 311 or AMS 412."
+            "requirements": "CSE 316 or CSE 351; CSE or DAS major. Pre- or corequisite: AMS 310 or AMS 311 or AMS 412."
           },
           {
             "id": "CSE357",
             "name": "Statistical Methods for Data Science",
             "description": "Introduces applied statistical inference and data analysis techniques, including estimation, hypothesis testing, Bayesian inference, and likelihood methods, with Python implementation.",
             "credits": 3,
-            "requirements": "Prerequisite(s): C or higher in CSE 214 or CSE 260; AMS 310; CSE or DAS major."
+            "requirements": "C or higher in CSE 214 or CSE 260; AMS 310; CSE or DAS major."
           }
         ],
         "electives": [
@@ -167,63 +167,63 @@
             "name": "Human-Computer Interaction",
             "description": "Survey of Human-Computer Interaction concepts, principles, and design techniques, with a focus on user experience and interface design.",
             "credits": 3,
-            "requirements": "Prerequisite(s): CSE 214 or CSE 230 or CSE 260 or ISE 208."
+            "requirements": "CSE 214 or CSE 230 or CSE 260 or ISE 208."
           },
           {
             "id": "CSE327",
             "name": "Fundamentals of Computer Vision",
             "description": "Introduces core techniques in visual information processing, including image formation, segmentation, and object recognition.",
             "credits": 3,
-            "requirements": "Prerequisite(s): CSE 214 or CSE 230 or CSE 260; AMS 210 or MAT 211; CSE or ISE or DAS major."
+            "requirements": "CSE 214 or CSE 230 or CSE 260; AMS 210 or MAT 211; CSE or ISE or DAS major."
           },
           {
             "id": "CSE332",
             "name": "Introduction to Visualization",
             "description": "Covers visualization and visual analytics for understanding complex data in science, business, and medicine. Includes hands-on projects using visualization libraries.",
             "credits": 3,
-            "requirements": "Prerequisite(s): CSE 214 or CSE 260; MAT 211 or AMS 210; AMS 110 or AMS 310; CSE or ISE or DAS major."
+            "requirements": "CSE 214 or CSE 260; MAT 211 or AMS 210; AMS 110 or AMS 310; CSE or ISE or DAS major."
           },
           {
             "id": "CSE337",
             "name": "Scripting Languages",
             "description": "Covers principles and practical applications of scripting languages for rapid development, automation, and software composition.",
             "credits": 3,
-            "requirements": "Prerequisite(s): CSE 214 or CSE 260; CSE or ISE or DAS major; U3 or U4 standing."
+            "requirements": "CSE 214 or CSE 260; CSE or ISE or DAS major; U3 or U4 standing."
           },
           {
             "id": "CSE354",
             "name": "Natural Language Processing",
             "description": "Introduces core NLP techniques and applications such as text classification, information extraction, question answering, and translation.",
             "credits": 3,
-            "requirements": "Prerequisite(s): CSE 316 or CSE 351; CSE or DAS major."
+            "requirements": "CSE 316 or CSE 351; CSE or DAS major."
           },
           {
             "id": "CSE371",
             "name": "Logic",
             "description": "Covers propositional calculus, quantification theory, proofs, models, completeness, and Goedel’s incompleteness theorem.",
             "credits": 3,
-            "requirements": "Prerequisite(s): CSE 113 or CSE 150 or CSE 215 or MAT 200 or MAT 250."
+            "requirements": "CSE 113 or CSE 150 or CSE 215 or MAT 200 or MAT 250."
           },
           {
             "id": "CSE378",
             "name": "Introduction to Robotics",
             "description": "Covers coordinate transformation, kinematics, dynamics, control systems, sensors, and path planning. Includes lab work using LEGO Robot Kit.",
             "credits": 3,
-            "requirements": "Prerequisite(s): AMS 161 or MAT 127 or MAT 132; AMS 210 or MAT 211 or MEC 262."
+            "requirements": "AMS 161 or MAT 127 or MAT 132; AMS 210 or MAT 211 or MEC 262."
           },
           {
             "id": "CSE390",
             "name": "Special Topics in Computer Science",
             "description": "A lecture or seminar course on a current topic in computer science. May be repeated as the topic changes.",
             "credits": 3,
-            "requirements": "Prerequisite(s): CSE 214 or CSE 260; CSE or ISE major."
+            "requirements": "CSE 214 or CSE 260; CSE or ISE major."
           },
           {
             "id": "CSE487",
             "name": "Research in Computer Science",
             "description": "Independent research under faculty supervision. May not be taken for more than six credits. Only three credits may count toward technical electives.",
             "credits": "0-3",
-            "requirements": "Prerequisite(s): Permission of instructor and department."
+            "requirements": "Permission of instructor and department."
           }
         ],
         "notes": "*Special topic or research project must be in artificial intelligence or data science."
@@ -232,14 +232,14 @@
         "specialization_name": "Human-Computer Interaction",
         "type": "Specialization",
         "description": "The specialization in human-computer interaction emphasizes both the psychology aspects of effective human-computer interactions and the technical design and implementation of systems for those interactions. It requires four core courses, two electives, and a project. Students may declare their participation in the specialization after completing two core courses.",
-        
+
         "requirements": {
           "total_courses": 7,
           "core_courses_required": 4,
           "electives_required": 2,
           "project_required": true
         },
-        
+
         "core_courses": [
           {
             "id": "CSE 323",
@@ -271,7 +271,7 @@
             "notes": "Offered as both CSE 333 and ISE 333."
           }
         ],
-        
+
         "electives": [
           "CSE 327 - Fundamentals of Computer Vision",
           "CSE 328 - Fundamentals of Computer Graphics",
@@ -304,12 +304,12 @@
           "last_updated": "2025-11-08"
         }
       },
-      
+
       {
         "specialization_name": "Security and Privacy",
         "type": "Specialization",
         "description": "The specialization in Security and Privacy prepares students for a career as a security engineer, threat analyst, or security and privacy researcher. The courses are taught by computer science faculty affiliated with the National Security Institute and cover both fundamental and advanced topics. Students may declare their participation in the specialization after completing one core course and at least two additional courses listed below.",
-        
+
         "requirements": {
           "core_courses_required": 2,
           "electives_required": 3,
@@ -320,7 +320,7 @@
             "At most one course from each elective item group may be used to satisfy the specialization requirements."
           ]
         },
-        
+
         "core_courses": [
           {
             "code": "CSE 331",
@@ -576,8 +576,122 @@
           }
         ],
         "notes": "Special topics (CSE 390) must specifically be in systems software development."
+      },
+      {
+        "specialization_name": "Game Programming",
+        "description": "The specialization in game programming prepares students for a career as either a professional game developer or researcher. Game graphics and multiplayer network programming techniques are stressed. The specialization also emphasizes original game development, game design methodology, and team projects and presentations.",
+        "requirements": "Students may declare their participation in the specialization after completing two core courses. It requires four core courses, two electives, and a project.",
+        "core_courses": [
+          {
+            "id": "CSE306",
+            "name": "Operating Systems",
+            "description": "Covers fundamental concepts of operating systems including process management, memory management, file systems, and system calls. Essential for understanding game engine architecture and performance optimization.",
+            "credits": 3,
+            "requirements": "CSE 220; CSE 303 or CSE 305."
+          },
+          {
+            "id": "CSE328",
+            "name": "Fundamentals of Computer Graphics",
+            "description": "Introduces core graphics concepts including rendering pipelines, 3D transformations, lighting models, texture mapping, and shader programming. Foundation for game graphics development.",
+            "credits": 3,
+            "requirements": "CSE 214 or CSE 260; AMS 210 or MAT 211; CSE or ISE major."
+          },
+          {
+            "id": "CSE380",
+            "name": "2D Game Programming",
+            "description": "Covers 2D game development including sprite rendering, collision detection, game physics, animation systems, and game design principles. Students develop complete 2D games.",
+            "credits": 3,
+            "requirements": "CSE 214 or CSE 260; CSE or ISE major."
+          },
+          {
+            "id": "CSE381",
+            "name": "3D Game Programming",
+            "description": "Advanced game development covering 3D rendering techniques, real-time graphics, game engine architecture, optimization, and multiplayer networking. Emphasizes team-based game projects.",
+            "credits": 3,
+            "requirements": "CSE 328; CSE 380."
+          }
+        ],
+        "electives": [
+          {
+            "id": "CSE310",
+            "name": "Computer Networks",
+            "description": "Covers network protocols, client-server architecture, socket programming, and multiplayer game networking. Essential for online multiplayer game development.",
+            "credits": 3,
+            "requirements": "CSE 214 or CSE 260; CSE 220."
+          },
+          {
+            "id": "CSE327",
+            "name": "Fundamentals of Computer Vision",
+            "description": "Introduces core techniques in visual information processing, including image formation, segmentation, and object recognition. Applicable to AR/VR games and computer vision-based gameplay.",
+            "credits": 3,
+            "requirements": "CSE 214 or CSE 230 or CSE 260; AMS 210 or MAT 211; CSE or ISE or DAS major."
+          },
+          {
+            "id": "CSE331",
+            "name": "Computer Security Fundamentals",
+            "description": "Introduces security principles including encryption, authentication, and secure system design. Important for preventing cheating and securing multiplayer games.",
+            "credits": 3,
+            "requirements": "CSE 220; CSE 303 or CSE 305."
+          },
+          {
+            "id": "CSE332",
+            "name": "Introduction to Visualization",
+            "description": "Covers visualization and visual analytics for understanding complex data in science, business, and medicine. Includes techniques applicable to game analytics and debugging tools.",
+            "credits": 3,
+            "requirements": "CSE 214 or CSE 260; MAT 211 or AMS 210; AMS 110 or AMS 310; CSE or ISE or DAS major."
+          },
+          {
+            "id": "CSE334",
+            "name": "Introduction to Multimedia Systems",
+            "description": "Covers multimedia data types, compression algorithms, streaming protocols, and multimedia application development. Relevant for game audio, video cutscenes, and streaming.",
+            "credits": 3,
+            "requirements": "CSE 214 or CSE 260; CSE or ISE major."
+          },
+          {
+            "id": "CSE352",
+            "name": "Artificial Intelligence",
+            "description": "Covers problem representations, search algorithms, game-playing AI, theorem proving, and cognitive simulation. Essential for developing intelligent game NPCs and opponents.",
+            "credits": 3,
+            "requirements": "CSE 316 or CSE 351; CSE or DAS major."
+          },
+          {
+            "id": "CSE353",
+            "name": "Machine Learning",
+            "description": "Covers fundamental concepts, models, and algorithms for systems that learn from data. Applications include adaptive game difficulty, procedural content generation, and player behavior prediction.",
+            "credits": 3,
+            "requirements": "CSE 316 or CSE 351; CSE or DAS major. Pre- or corequisite: AMS 310 or AMS 311 or AMS 412."
+          },
+          {
+            "id": "CSE355",
+            "name": "Computational Geometry",
+            "description": "Covers geometric algorithms for collision detection, path planning, visibility determination, and spatial data structures. Critical for game physics and AI navigation.",
+            "credits": 3,
+            "requirements": "AMS 301 or CSE 373; CSE or ISE or DAS major."
+          },
+          {
+            "id": "CSE364",
+            "name": "Advanced Multimedia Techniques",
+            "description": "Advanced topics in multimedia processing including real-time rendering, audio synthesis, and interactive media. Applicable to cutting-edge game audio and visual effects.",
+            "credits": 3,
+            "requirements": "CSE 334."
+          },
+          {
+            "id": "CSE376",
+            "name": "Advanced Systems Programming in UNIX/C",
+            "description": "Advanced C programming and UNIX system programming including process control, interprocess communication, and system-level optimization. Relevant for game engine development.",
+            "credits": 3,
+            "requirements": "CSE 220; CSE 320 or CSE 306."
+          },
+          {
+            "id": "CSE378",
+            "name": "Introduction to Robotics",
+            "description": "Covers coordinate transformation, kinematics, dynamics, control systems, sensors, and path planning. Applicable to physics simulation and robotic characters in games.",
+            "credits": 3,
+            "requirements": "AMS 161 or MAT 127 or MAT 132; AMS 210 or MAT 211 or MEC 262."
+          }
+        ],
+        "notes": "Courses used to satisfy required advanced courses may not be used to satisfy specialization requirements. Students are encouraged to participate in game jams and develop portfolio projects."
       }
-
     ]
   }
 ]
