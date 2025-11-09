@@ -10,7 +10,7 @@ const NewRoadMapModalComponent = ({ onClose }) => {
   const [skills, setSkills] = useState("");
   const [timeCommitment, setTimeCommitment] = useState("");
   const [additionalContext, setAdditionalContext] = useState("");
-  const [availableSemesters, setAvailableSemesters] = useState("");
+  const [roadMapName, setRoadMapName] = useState("");
 
   useEffect(() => {
     setIsVisible(true);
@@ -130,6 +130,14 @@ const NewRoadMapModalComponent = ({ onClose }) => {
         </h2>
 
         {/* Inputs */}
+        <label style={labelStyle}>Roadmap Name</label>
+        <input
+          type="text"
+          style={inputStyle}
+          value={roadMapName}
+          onChange={(e) => setRoadMapName(e.target.value)}
+        />
+
         <label style={labelStyle}>Target Role</label>
         <input
           type="text"
