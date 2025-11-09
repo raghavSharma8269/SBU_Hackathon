@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 
-const NewRoadMapModalComponent = ({ onClose }) => {
+const NewRoadMapModalComponent = ({ onClose, onRoadmapCreated }) => {
   const [isVisible, setIsVisible] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   const [targetRole, setTargetRole] = useState("");
   const [currentYear, setCurrentYear] = useState("");
@@ -16,21 +19,51 @@ const NewRoadMapModalComponent = ({ onClose }) => {
   }, []);
 
   const handleClose = () => {
+    // Prevent closing while loading
+    if (isLoading) return;
+
     setIsVisible(false);
     setTimeout(() => onClose(), 200);
   };
 
-  const handleSave = () => {
-    console.log({
-      target_role: targetRole,
-      current_year: currentYear,
-      target_timeline: targetTimeline,
-      completed_courses: completedCourses,
+  const handleSave = async () => {
+    // Prepare the request body
+    const formData = {
+      targetRole,
+      currentYear,
+      targetTimeline,
+      completedCourses,
       skills,
-      time_commitment: timeCommitment,
-      additional_context: additionalContext,
-    });
-    handleClose();
+      timeCommitment,
+      additionalContext,
+    };
+
+    try {
+      setIsLoading(true);
+      setError(null);
+
+      console.log("Sending form data to generate roadmap:", formData);
+
+      const response = await axios.post(
+        "http://localhost:5001/api/roadmaps/generate",
+        formData
+      );
+
+      console.log("Roadmap generated successfully:", response.data);
+
+      // Call the callback to refresh the roadmaps list
+      if (onRoadmapCreated) {
+        onRoadmapCreated(response.data);
+      }
+
+      handleClose();
+    } catch (err) {
+      console.error("Error generating roadmap:", err);
+      console.error("Error details:", err.response);
+      setError(err.response?.data?.error || "Failed to generate roadmap");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   // Common input style
@@ -74,17 +107,22 @@ const NewRoadMapModalComponent = ({ onClose }) => {
   });
 
   const handleHover = (e) => {
-    e.currentTarget.style.transform = "scale(1.05)";
-    e.currentTarget.style.boxShadow = "0 6px 20px rgba(0,0,0,0.35)";
+    if (!isLoading) {
+      e.currentTarget.style.transform = "scale(1.05)";
+      e.currentTarget.style.boxShadow = "0 6px 20px rgba(0,0,0,0.35)";
+    }
   };
 
   const handleLeave = (e) => {
-    e.currentTarget.style.transform = "scale(1)";
-    e.currentTarget.style.boxShadow = "0 4px 10px rgba(0,0,0,0.2)";
+    if (!isLoading) {
+      e.currentTarget.style.transform = "scale(1)";
+      e.currentTarget.style.boxShadow = "0 4px 10px rgba(0,0,0,0.2)";
+    }
   };
 
   return (
     <div
+      onClick={handleClose}
       style={{
         position: "fixed",
         top: 0,
@@ -100,7 +138,70 @@ const NewRoadMapModalComponent = ({ onClose }) => {
         transition: "opacity 0.2s ease-in-out",
       }}
     >
+      {/* Loading Overlay */}
+      {isLoading && (
+        <div
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            background: "rgba(0,0,0,0.8)",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            zIndex: 10000,
+          }}
+        >
+          {/* Spinner */}
+          <div
+            style={{
+              width: "60px",
+              height: "60px",
+              border: "4px solid rgba(255,255,255,0.2)",
+              borderTop: "4px solid #900",
+              borderRadius: "50%",
+              animation: "spin 1s linear infinite",
+              marginBottom: "20px",
+            }}
+          />
+
+          {/* Loading Text */}
+          <div
+            style={{
+              color: "#fff",
+              fontSize: "18px",
+              fontWeight: "600",
+              marginBottom: "12px",
+              textAlign: "center",
+            }}
+          >
+            Generating Your Roadmap...
+          </div>
+
+          {/* Warning */}
+          <div
+            style={{
+              color: "rgba(255,255,255,0.8)",
+              fontSize: "14px",
+              textAlign: "center",
+              maxWidth: "400px",
+              padding: "12px 20px",
+              background: "rgba(153, 0, 0, 0.3)",
+              borderRadius: "8px",
+              border: "1px solid rgba(153, 0, 0, 0.5)",
+            }}
+          >
+            ⚠️ Please do not close this window or navigate away. This may take a
+            moment.
+          </div>
+        </div>
+      )}
+
       <div
+        onClick={(e) => e.stopPropagation()}
         style={{
           width: "500px",
           maxWidth: "90%",
@@ -114,6 +215,8 @@ const NewRoadMapModalComponent = ({ onClose }) => {
           transform: isVisible ? "translateY(0)" : "translateY(-20px)",
           transition: "transform 0.2s ease-in-out",
           backdropFilter: "blur(20px)",
+          pointerEvents: isLoading ? "none" : "auto",
+          opacity: isLoading ? 0.5 : 1,
         }}
         className="modal-scroll"
       >
@@ -128,6 +231,23 @@ const NewRoadMapModalComponent = ({ onClose }) => {
           New Roadmap
         </h2>
 
+        {/* Error Message */}
+        {error && (
+          <div
+            style={{
+              padding: "10px",
+              marginBottom: "15px",
+              backgroundColor: "rgba(255,0,0,0.2)",
+              border: "1px solid rgba(255,0,0,0.5)",
+              borderRadius: "8px",
+              color: "#fff",
+              fontSize: "14px",
+            }}
+          >
+            {error}
+          </div>
+        )}
+
         {/* Inputs */}
         <label style={labelStyle}>Target Role</label>
         <input
@@ -136,6 +256,7 @@ const NewRoadMapModalComponent = ({ onClose }) => {
           value={targetRole}
           onChange={(e) => setTargetRole(e.target.value)}
           placeholder="Backend Engineer"
+          disabled={isLoading}
         />
 
         <label style={labelStyle}>Current Year</label>
@@ -145,6 +266,7 @@ const NewRoadMapModalComponent = ({ onClose }) => {
           value={currentYear}
           onChange={(e) => setCurrentYear(e.target.value)}
           placeholder="Freshman, Sophomore, Junior, Senior"
+          disabled={isLoading}
         />
 
         <label style={labelStyle}>Target Timeline</label>
@@ -154,6 +276,7 @@ const NewRoadMapModalComponent = ({ onClose }) => {
           value={targetTimeline}
           onChange={(e) => setTargetTimeline(e.target.value)}
           placeholder="Summer 2026"
+          disabled={isLoading}
         />
 
         <label style={labelStyle}>Completed Courses</label>
@@ -163,6 +286,7 @@ const NewRoadMapModalComponent = ({ onClose }) => {
           value={completedCourses}
           onChange={(e) => setCompletedCourses(e.target.value)}
           placeholder="CSE 114, CSE 214"
+          disabled={isLoading}
         />
 
         <label style={labelStyle}>Skills</label>
@@ -172,6 +296,7 @@ const NewRoadMapModalComponent = ({ onClose }) => {
           value={skills}
           onChange={(e) => setSkills(e.target.value)}
           placeholder="Python, Java, Git, etc."
+          disabled={isLoading}
         />
 
         <label style={labelStyle}>Time Commitment</label>
@@ -181,6 +306,7 @@ const NewRoadMapModalComponent = ({ onClose }) => {
           value={timeCommitment}
           onChange={(e) => setTimeCommitment(e.target.value)}
           placeholder="ex. 10-15 hrs/week"
+          disabled={isLoading}
         />
 
         <label style={labelStyle}>Additional Context</label>
@@ -189,6 +315,7 @@ const NewRoadMapModalComponent = ({ onClose }) => {
           value={additionalContext}
           onChange={(e) => setAdditionalContext(e.target.value)}
           placeholder="Interested in cybersecurity..."
+          disabled={isLoading}
         />
 
         {/* Buttons */}
@@ -202,11 +329,16 @@ const NewRoadMapModalComponent = ({ onClose }) => {
         >
           <button
             onClick={handleClose}
-            style={gradientButtonStyle(
-              "linear-gradient(214deg, rgba(80,80,80,1) 20%, rgba(40,40,40,1) 100%)"
-            )}
+            style={{
+              ...gradientButtonStyle(
+                "linear-gradient(214deg, rgba(80,80,80,1) 20%, rgba(40,40,40,1) 100%)"
+              ),
+              opacity: isLoading ? 0.5 : 1,
+              cursor: isLoading ? "not-allowed" : "pointer",
+            }}
             onMouseEnter={handleHover}
             onMouseLeave={handleLeave}
+            disabled={isLoading}
           >
             Cancel
           </button>
@@ -216,14 +348,27 @@ const NewRoadMapModalComponent = ({ onClose }) => {
               ...gradientButtonStyle("black"),
               background: "#900",
               color: "#fff",
+              opacity: isLoading ? 0.5 : 1,
+              cursor: isLoading ? "not-allowed" : "pointer",
             }}
             onMouseEnter={handleHover}
             onMouseLeave={handleLeave}
+            disabled={isLoading}
           >
-            Confirm
+            {isLoading ? "Generating..." : "Confirm"}
           </button>
         </div>
       </div>
+
+      {/* Add keyframe animation for spinner */}
+      <style>
+        {`
+          @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+          }
+        `}
+      </style>
     </div>
   );
 };

@@ -14,30 +14,31 @@ const HomePage = () => {
 
   const navigate = useNavigate();
 
+  // Function to fetch all roadmaps
+  const fetchRoadmaps = async () => {
+    try {
+      setLoading(true);
+      const response = await axios.get("http://localhost:5001/api/roadmaps");
+
+      const formattedRoadmaps = response.data.map((roadmap, index) => ({
+        title: roadmap.title,
+        year: "Year 1",
+        concentration: "Backend Development",
+        timeline: "2 Years Timeline",
+        _id: roadmap._id,
+      }));
+
+      setRoadmaps(formattedRoadmaps);
+      setError(null);
+    } catch (err) {
+      console.error("Error fetching roadmaps:", err);
+      setError("Failed to load roadmaps");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   useEffect(() => {
-    const fetchRoadmaps = async () => {
-      try {
-        setLoading(true);
-        const response = await axios.get("http://localhost:5001/api/roadmaps");
-
-        const formattedRoadmaps = response.data.map((roadmap, index) => ({
-          title: roadmap.title,
-          year: "Year 1",
-          concentration: "Backend Development",
-          timeline: "2 Years Timeline",
-          _id: roadmap._id,
-        }));
-
-        setRoadmaps(formattedRoadmaps);
-        setError(null);
-      } catch (err) {
-        console.error("Error fetching roadmaps:", err);
-        setError("Failed to load roadmaps");
-      } finally {
-        setLoading(false);
-      }
-    };
-
     fetchRoadmaps();
   }, []);
 
@@ -59,9 +60,14 @@ const HomePage = () => {
     }
   };
 
-  // Function to reroute to '/portal'
-  const goToPortal = () => {
-    navigate("/portal");
+  // Callback when a new roadmap is created
+  const handleRoadmapCreated = (newRoadmap) => {
+    console.log("New roadmap created:", newRoadmap);
+
+    // Navigate directly to the new roadmap
+    if (newRoadmap && newRoadmap._id) {
+      navigate("/portal", { state: { roadmap: newRoadmap } });
+    }
   };
 
   return (
@@ -186,7 +192,10 @@ const HomePage = () => {
         </div>
       </div>
       {isModalOpen && (
-        <NewRoadMapModalComponent onClose={() => setIsModalOpen(false)} />
+        <NewRoadMapModalComponent
+          onClose={() => setIsModalOpen(false)}
+          onRoadmapCreated={handleRoadmapCreated}
+        />
       )}
     </div>
   );
