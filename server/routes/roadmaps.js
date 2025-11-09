@@ -55,6 +55,40 @@ router.get('/:id', async (req, res) => {
   }
 });
 
+// POST /api/roadmaps/:id
+// Update the `roadmap` field of an existing roadmap document by ID.
+router.post('/:id', async (req, res) => {
+  try {
+    const roadmapId = req.params.id;
+
+    // Basic ObjectId validation
+    if (!roadmapId.match(/^[0-9a-fA-F]{24}$/)) {
+      return res.status(400).json({ error: 'Invalid roadmap ID.' });
+    }
+
+    const { roadmap } = req.body;
+
+    if (roadmap === undefined) {
+      return res.status(400).json({ error: 'Request body must include a `roadmap` field.' });
+    }
+
+    const updated = await Roadmap.findByIdAndUpdate(
+      roadmapId,
+      { roadmap },
+      { new: true }
+    );
+
+    if (!updated) {
+      return res.status(404).json({ error: 'Roadmap not found.' });
+    }
+
+    res.status(200).json(updated);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Failed to update roadmap.' });
+  }
+});
+
 
 
 module.exports = router;

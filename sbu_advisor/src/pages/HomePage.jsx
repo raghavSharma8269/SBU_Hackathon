@@ -43,16 +43,16 @@ const HomePage = () => {
 
   // Function: Navigate to Portal
   const fetchRoadmapById = async (id) => {
-    // Debug: console.log("Fetching roadmap with ID:", id);
+    // Fetch roadmap from backend and navigate to portal with the roadmap in router state
     try {
       const response = await fetch(`http://localhost:5001/api/roadmaps/${id}`);
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
-        const data = await response.json();
-        // Debug: console.log("Fetched roadmap data:", data);
-        goToPortal();
-        return data;
+      const data = await response.json();
+      // Navigate to portal and pass roadmap data via location state so PlannerPage can load it
+      navigate("/portal", { state: { roadmap: data } });
+      return data;
     } catch (error) {
       console.error("Error fetching roadmap:", error);
       return null;

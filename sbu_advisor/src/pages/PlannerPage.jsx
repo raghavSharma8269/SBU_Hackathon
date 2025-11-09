@@ -20,6 +20,43 @@ export default function Portal() {
 
   // Lift semesters into state so drag & drop can mutate them
   const [semesters, setSemesters] = useState(() => initialSemesters);
+  // Persisted roadmap ID (saved in the backend). Read from localStorage if present.
+  const [roadmapId, setRoadmapId] = useState(() =>
+    typeof window !== "undefined" ? localStorage.getItem("roadmapId") : null
+  );
+
+  // If the user navigated here with a roadmap in location.state, load it into semesters
+  useEffect(() => {
+    if (!state) return;
+
+    // The Home page passes { roadmap: <roadmap document> }
+    const incoming = state.roadmap;
+    if (!incoming) return;
+
+    // If the document stores its planner under `roadmap.semesters`, prefer that.
+    const incomingSemesters =
+      (incoming.roadmap && incoming.roadmap.semesters) || incoming.semesters;
+
+    if (Array.isArray(incomingSemesters) && incomingSemesters.length > 0) {
+      setSemesters(incomingSemesters);
+    }
+
+    // If the incoming doc has an _id, persist it so subsequent saves update the same record
+    if (incoming._id) {
+      setRoadmapId(incoming._id);
+      try {
+        localStorage.setItem("roadmapId", incoming._id);
+      } catch (err) {
+        // ignore localStorage failures
+      }
+    }
+    // Also store a local copy of the document for quick reloads
+    try {
+      localStorage.setItem("roadmap", JSON.stringify(incoming));
+    } catch (err) {
+      // ignore
+    }
+  }, [state]);
 
   // Compute set of planned course IDs to hide them from the SideNav
   const plannedCourseIds = useMemo(() => {
@@ -32,8 +69,64 @@ export default function Portal() {
     // Future: show modal to create new semester
   };
 
-  const handleSaveRoadmap = () => {
-    localStorage.setItem("roadmap", JSON.stringify({ semesters }));
+  const handleSaveRoadmap = async () => {
+    // Prepare roadmap payload
+    const roadmapPayload = { semesters };
+
+    // API base - matches server/server.js (dev server runs on 5001)
+    const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:5001";
+
+    try {
+      if (roadmapId) {
+        // Update existing roadmap
+        const res = await fetch(`${API_BASE}/api/roadmaps/${roadmapId}`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ roadmap: roadmapPayload }),
+        });
+
+        if (!res.ok) {
+          const errBody = await res.json().catch(() => ({}));
+          throw new Error(errBody.error || `Update failed (${res.status})`);
+        }
+
+        const updated = await res.json();
+        // Keep a local copy for quick reloads
+        localStorage.setItem("roadmap", JSON.stringify(updated));
+        console.log("Roadmap updated:", updated);
+        // Optionally notify user
+        // eslint-disable-next-line no-alert
+        alert("Roadmap updated successfully.");
+      } else {
+        // Create a new roadmap in the backend. Use a sensible title derived from the UI.
+        const title = "SWE Track - Full-Stack Development";
+        const res = await fetch(`${API_BASE}/api/roadmaps`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ title, roadmap: roadmapPayload }),
+        });
+
+        if (!res.ok) {
+          const errBody = await res.json().catch(() => ({}));
+          throw new Error(errBody.error || `Create failed (${res.status})`);
+        }
+
+        const created = await res.json();
+        // Save returned id for future updates
+        if (created && created._id) {
+          setRoadmapId(created._id);
+          localStorage.setItem("roadmapId", created._id);
+        }
+        localStorage.setItem("roadmap", JSON.stringify(created));
+        console.log("Roadmap created:", created);
+        // eslint-disable-next-line no-alert
+        alert("Roadmap saved to server.");
+      }
+    } catch (err) {
+      console.error("Failed to save roadmap:", err);
+      // eslint-disable-next-line no-alert
+      alert("Failed to save roadmap. See console for details.");
+    }
   };
 
   // Helper to recompute credits
