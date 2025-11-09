@@ -66,8 +66,6 @@ const HomePage = () => {
 
   return (
     <div className="relative w-full min-h-screen flex flex-col items-center py-12 bg-white">
-      {/* Remove overflow-x-hidden from the className above */}{" "}
-      {/* Beams Background */}
       <div
         style={{
           position: "absolute",
