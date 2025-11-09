@@ -52,9 +52,9 @@ const HomePage = () => {
         }}
       >
         <HomePageDots
-          dotSize={5}
+          dotSize={3}
           gap={15}
-          baseColor="black"
+          baseColor="#383636"
           activeColor="#900"
           proximity={120}
           shockRadius={250}
