@@ -65,7 +65,8 @@ const HomePage = () => {
   };
 
   return (
-    <div className="relative w-full min-h-screen overflow-x-hidden flex flex-col items-center py-12 bg-white">
+    <div className="relative w-full min-h-screen flex flex-col items-center py-12 bg-white">
+      {/* Remove overflow-x-hidden from the className above */}{" "}
       {/* Beams Background */}
       <div
         style={{
@@ -89,7 +90,6 @@ const HomePage = () => {
           returnDuration={1.5}
         />
       </div>
-
       {/* Content Layer */}
       <div
         style={{
@@ -187,7 +187,6 @@ const HomePage = () => {
           )}
         </div>
       </div>
-
       {isModalOpen && (
         <NewRoadMapModalComponent onClose={() => setIsModalOpen(false)} />
       )}
