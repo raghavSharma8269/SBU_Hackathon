@@ -2,11 +2,11 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const roadmapsRouter = require('./routes/roadmaps');
+const neuralseekRouter = require('./routes/neuralseek')
 
 const app = express();
 app.use(express.json()); // for parsing JSON bodies
 
-// Connect to MongoDB
 mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
@@ -15,6 +15,7 @@ mongoose.connect(process.env.MONGO_URI, {
 
 // Routes
 app.use('/api/roadmaps', roadmapsRouter);
+app.use('/api/neuralseek', neuralseekRouter)
 
 // Start server
 const PORT = process.env.PORT || 5000;

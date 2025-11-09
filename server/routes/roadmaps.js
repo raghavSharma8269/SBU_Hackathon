@@ -5,13 +5,13 @@ const Roadmap = require('../models/Roadmap');
 // Save a new roadmap JSON to MongoDB
 router.post('/', async (req, res) => {
   try {
-    const { title, roadmap } = req.body;
+    const { title, roadmap, formData } = req.body;
 
-    if (!title || !roadmap) {
+    if (!title || !roadmap || !formData) {
       return res.status(400).json({ error: 'Title and roadmap JSON are required.' });
     }
 
-    const newRoadmap = new Roadmap({ title, roadmap });
+    const newRoadmap = new Roadmap({ title, roadmap, formData });
     const savedRoadmap = await newRoadmap.save();
 
     res.status(201).json(savedRoadmap);
